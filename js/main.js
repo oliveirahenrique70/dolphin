@@ -61,9 +61,9 @@ const form = document.getElementById('contact-form');
 const statusEl = document.getElementById('form-status');
 
 const validators = {
-  name: (value) => value.trim().length > 1 || 'Enter your name.',
-  email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) || 'Enter a valid email address.',
-  message: (value) => value.trim().length > 9 || 'Say a little more — at least 10 characters.',
+  name: (value) => value.trim().length > 1 || 'Digite seu nome.',
+  email: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) || 'Digite um e-mail válido.',
+  message: (value) => value.trim().length > 9 || 'Conte um pouco mais — pelo menos 10 caracteres.',
 };
 
 const validateField = (field) => {
@@ -95,18 +95,18 @@ if (form) {
     const isValid = results.every(Boolean);
 
     if (!isValid) {
-      statusEl.textContent = 'Please fix the highlighted fields.';
+      statusEl.textContent = 'Corrija os campos destacados.';
       return;
     }
 
-    // No backend is wired up yet — this simulates a send so the
-    // interaction is complete. Replace with a real endpoint call.
+    // Nenhum backend conectado ainda — isso simula um envio para
+    // completar a interação. Troque pelo endpoint real quando tiver um.
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
-    statusEl.textContent = 'Sending…';
+    statusEl.textContent = 'Enviando…';
 
     setTimeout(() => {
-      statusEl.textContent = 'Thanks — your message is on its way. I\'ll reply within a couple of days.';
+      statusEl.textContent = 'Recebemos sua mensagem — respondemos em até dois dias úteis.';
       form.reset();
       submitBtn.disabled = false;
     }, 700);
