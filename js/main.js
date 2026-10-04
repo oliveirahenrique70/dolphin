@@ -83,6 +83,7 @@ const translations = {
         desc: 'Exploratory analysis of the Russia-Ukraine War using public Kaggle data. The project examines equipment losses, personnel casualties, prisoners of war and wounded, using R, tidyverse and Plotly to generate interactive visualizations.',
         tools: ['R', 'tidyverse', 'Plotly', 'Kaggle'],
         cta: 'View project on RPubs',
+        imageAlt: 'Preview of the Russo-Ukrainian War Analysis project',
       },
     },
     about: {
@@ -191,6 +192,7 @@ const translations = {
         desc: 'Análise exploratória da Guerra Rússia-Ucrânia a partir de dados públicos do Kaggle. O projeto examina perdas de equipamentos, baixas de pessoal, prisioneiros de guerra e feridos, usando R, tidyverse e Plotly para gerar visualizações interativas.',
         tools: ['R', 'tidyverse', 'Plotly', 'Kaggle'],
         cta: 'Ver projeto no RPubs',
+        imageAlt: 'Prévia do projeto Russo-Ukrainian War Analysis',
       },
     },
     about: {
@@ -299,6 +301,7 @@ const translations = {
         desc: 'Análisis exploratorio de la Guerra Rusia-Ucrania utilizando datos públicos de Kaggle. El proyecto examina pérdidas de equipos, bajas de personal, prisioneros de guerra y heridos, usando R, tidyverse y Plotly para generar visualizaciones interactivas.',
         tools: ['R', 'tidyverse', 'Plotly', 'Kaggle'],
         cta: 'Ver proyecto en RPubs',
+        imageAlt: 'Vista previa del proyecto Russo-Ukrainian War Analysis',
       },
     },
     about: {

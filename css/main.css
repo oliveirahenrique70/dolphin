@@ -505,7 +505,12 @@ section { padding: clamp(2.5rem, 8vw, 7rem) var(--gutter); }
   justify-content: center;
   min-height: 240px;
 }
-.project__media img { max-width: 220px; }
+.project__media img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
 .project__body { display: flex; flex-direction: column; gap: 0.85rem; }
 .project__meta { color: var(--accent-strong); font-size: 0.82rem; }
 .project__body h3 { font-size: 1.45rem; }
