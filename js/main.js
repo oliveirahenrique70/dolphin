@@ -11,6 +11,8 @@ const translations = {
       about: 'About',
       contact: 'Contact',
       cta: 'Get in touch',
+      menuOpen: 'Open menu',
+      menuClose: 'Close menu',
     },
     hero: {
       role: 'Development & data studio',
@@ -117,6 +119,8 @@ const translations = {
       about: 'Sobre',
       contact: 'Contato',
       cta: 'Falar com a gente',
+      menuOpen: 'Abrir menu',
+      menuClose: 'Fechar menu',
     },
     hero: {
       role: 'Estúdio de desenvolvimento & dados',
@@ -223,6 +227,8 @@ const translations = {
       about: 'Nosotros',
       contact: 'Contacto',
       cta: 'Hablemos',
+      menuOpen: 'Abrir menú',
+      menuClose: 'Cerrar menú',
     },
     hero: {
       role: 'Estudio de desarrollo & datos',
@@ -421,6 +427,44 @@ const i18n = {
 };
 
 i18n.init();
+
+// ---------------------------------------------
+// Mobile menu
+// ---------------------------------------------
+const menuToggle = document.querySelector('.nav__menu-toggle');
+const navMenu = document.querySelector('.nav__menu');
+
+if (menuToggle && navMenu) {
+  const closeMenu = () => {
+    navMenu.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', i18n.getNested(translations[i18n.currentLang], 'nav.menuOpen') || 'Open menu');
+  };
+
+  const openMenu = () => {
+    navMenu.classList.add('is-open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', i18n.getNested(translations[i18n.currentLang], 'nav.menuClose') || 'Close menu');
+  };
+
+  menuToggle.addEventListener('click', () => {
+    navMenu.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  navMenu.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.closest('.nav') && navMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+  });
+}
 
 // ---------------------------------------------
 // Nav: shrink/border state on scroll
