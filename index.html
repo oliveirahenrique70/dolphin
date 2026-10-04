@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en" id="html-root">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dolphin Developer — Sites, dados e automação</title>
-<meta name="description" content="Dolphin Developer: criação de sites, análise de dados, big data, gestão de redes sociais e automação de processos.">
+<title>Dolphin Developer — Sites, data and automation</title>
+<meta name="description" content="Dolphin Developer: website creation, data analysis, big data, social media management and process automation.">
 
-<link rel="icon" type="image/svg+xml" href="assets/images/dolphin-icon.svg">
+<link rel="icon" type="image/svg+xml" href="assets/images/computer-only.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -15,21 +15,35 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Pular para o conteúdo</a>
+<a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a href="#top" class="nav__brand">
-      <img src="assets/images/dolphin-icon.svg" alt="" class="nav__mark">
+      <img src="assets/images/computer-only.svg" alt="" class="nav__mark">
       <span class="nav__wordmark">Dolphin Developer</span>
     </a>
     <nav class="nav__links" aria-label="Principal">
-      <a href="#servicos">Serviços</a>
-      <a href="#como-trabalhamos">Como trabalhamos</a>
-      <a href="#sobre">Sobre</a>
-      <a href="#contato">Contato</a>
+      <a href="#servicos" data-i18n="nav.services">Services</a>
+      <a href="#projetos" data-i18n="nav.projects">Projects</a>
+      <a href="#como-trabalhamos" data-i18n="nav.process">How we work</a>
+      <a href="#sobre" data-i18n="nav.about">About</a>
+      <a href="#contato" data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="#contato" class="nav__cta">Falar com a gente</a>
+    <div class="nav__actions">
+      <div class="lang-switcher" aria-label="Language selector">
+        <button class="lang-switcher__toggle" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="lang-switcher__icon" aria-hidden="true">🌐</span>
+          <span class="lang-switcher__label">English</span>
+        </button>
+        <ul class="lang-switcher__menu" role="listbox" tabindex="-1">
+          <li><button type="button" role="option" data-lang="en" aria-selected="true">English</button></li>
+          <li><button type="button" role="option" data-lang="pt">Português</button></li>
+          <li><button type="button" role="option" data-lang="es">Español</button></li>
+        </ul>
+      </div>
+      <a href="#contato" class="nav__cta" data-i18n="nav.cta">Get in touch</a>
+    </div>
   </div>
 </header>
 
@@ -37,65 +51,62 @@
 
   <section class="hero" id="top">
     <div class="hero__inner">
-      <p class="hero__role">Estúdio de desenvolvimento &amp; dados</p>
-      <h1 class="hero__headline">Construímos a tecnologia que leva o seu negócio além da superfície.</h1>
-      <p class="hero__sub">Sites, dashboards de dados, automações e gestão de redes sociais — tudo desenhado para o seu time nadar de braçada enquanto a gente cuida da tecnologia.</p>
+      <p class="hero__role" data-i18n="hero.role">Development & data studio</p>
+      <h1 class="hero__headline" data-i18n="hero.headline">We build the technology that takes your business beyond the surface.</h1>
+      <p class="hero__sub" data-i18n="hero.sub">Websites, data dashboards, automations and social media management — everything designed so your team swims ahead while we handle the tech.</p>
       <div class="hero__actions">
-        <a href="#servicos" class="btn btn--primary">Ver serviços</a>
-        <a href="#contato" class="btn btn--ghost">Falar com a gente</a>
+        <a href="#servicos" class="btn btn--primary" data-i18n="hero.ctaPrimary">See services</a>
+        <a href="#contato" class="btn btn--ghost" data-i18n="hero.ctaSecondary">Get in touch</a>
       </div>
     </div>
     <div class="hero__visual">
       <div class="hero__visual-glow" aria-hidden="true"></div>
-      <img src="assets/images/dolphin-mascot.svg" alt="Ilustração de um golfinho digitando em um laptop">
+      <img src="assets/images/computer-only.svg" alt="" data-i18n-attr="alt" data-i18n="hero.imageAlt">
     </div>
-    <div class="hero__stats" aria-label="Números do estúdio">
+    <div class="hero__stats" aria-label="Studio numbers">
       <div class="stat">
         <span class="stat__value">+30</span>
-        <span class="stat__label">projetos entregues</span>
+        <span class="stat__label" data-i18n="stats.projectsLabel">projects delivered</span>
       </div>
       <div class="stat">
         <span class="stat__value">5</span>
-        <span class="stat__label">frentes de atuação, de site a automação</span>
+        <span class="stat__label" data-i18n="stats.frentesLabel">areas of expertise, from websites to automation</span>
       </div>
       <div class="stat">
         <span class="stat__value">100%</span>
-        <span class="stat__label">remoto, em qualquer fuso</span>
+        <span class="stat__label" data-i18n="stats.remoteLabel">remote, any timezone</span>
       </div>
     </div>
   </section>
 
   <section class="services" id="servicos">
     <div class="section-head">
-      <h2>Serviços</h2>
-      <p>Cinco frentes, um time só cuidando de tudo de ponta a ponta.</p>
+      <h2 data-i18n="services.title">Services</h2>
+      <p data-i18n="services.subtitle">Five fronts, one team taking care of everything end to end.</p>
     </div>
 
     <div class="grid">
 
       <article class="card card--feature reveal">
-        <div class="card__media"><span class="card__icon">Sites</span></div>
+        <div class="card__media"><span class="card__icon" data-i18n="services.sites.icon">Websites</span></div>
         <div class="card__body">
-          <div class="card__meta">Web · Sites &amp; landing pages</div>
-          <h3>Criação de sites</h3>
-          <p class="card__desc">Sites institucionais, landing pages e lojas virtuais rápidos, responsivos e construídos para converter — não só para existir.</p>
-          <p class="card__highlight">Performance acima de 90 no Lighthouse, de fábrica.</p>
-          <ul class="card__tools">
+          <div class="card__meta" data-i18n="services.sites.meta">Web · Websites & landing pages</div>
+          <h3 data-i18n="services.sites.title">Website creation</h3>
+          <p class="card__desc" data-i18n="services.sites.desc">Institutional websites, landing pages and online stores that are fast, responsive and built to convert — not just to exist.</p>
+          <ul class="card__tools" data-i18n="services.sites.tools">
             <li>HTML5 &amp; CSS3</li>
             <li>React / Next.js</li>
-            <li>SEO técnico</li>
-            <li>CMS sob medida</li>
           </ul>
         </div>
       </article>
 
       <article class="card reveal">
-        <div class="card__media"><span class="card__icon">Dados</span></div>
+        <div class="card__media"><span class="card__icon" data-i18n="services.data.icon">Data Analysis</span></div>
         <div class="card__body">
-          <div class="card__meta">Dados · Dashboards</div>
-          <h3>Análise de dados &amp; apps interativos</h3>
-          <p class="card__desc">Transformamos dados brutos em dashboards e aplicações interativas que sua equipe realmente usa para decidir.</p>
-          <ul class="card__tools">
+          <div class="card__meta" data-i18n="services.data.meta">Data Analysis · Dashboards</div>
+          <h3 data-i18n="services.data.title">Data Analysis & interactive apps</h3>
+          <p class="card__desc" data-i18n="services.data.desc">We turn raw data into dashboards and interactive applications your team actually uses to make decisions.</p>
+          <ul class="card__tools" data-i18n="services.data.tools">
             <li>Python</li>
             <li>SQL</li>
             <li>D3 / Plotly</li>
@@ -104,12 +115,12 @@
       </article>
 
       <article class="card reveal">
-        <div class="card__media"><span class="card__icon">Big Data</span></div>
+        <div class="card__media"><span class="card__icon" data-i18n="services.bigdata.icon">Big Data</span></div>
         <div class="card__body">
-          <div class="card__meta">Dados · Infraestrutura</div>
-          <h3>Big data</h3>
-          <p class="card__desc">Arquiteturas para coletar, armazenar e processar grandes volumes de dados com performance e custo sob controle.</p>
-          <ul class="card__tools">
+          <div class="card__meta" data-i18n="services.bigdata.meta">Data · Infrastructure</div>
+          <h3 data-i18n="services.bigdata.title">Big data</h3>
+          <p class="card__desc" data-i18n="services.bigdata.desc">Architectures to collect, store and process large volumes of data with performance and cost under control.</p>
+          <ul class="card__tools" data-i18n="services.bigdata.tools">
             <li>Spark</li>
             <li>Airflow</li>
             <li>BigQuery / AWS</li>
@@ -118,29 +129,29 @@
       </article>
 
       <article class="card reveal">
-        <div class="card__media"><span class="card__icon">Social</span></div>
+        <div class="card__media"><span class="card__icon" data-i18n="services.social.icon">Social</span></div>
         <div class="card__body">
-          <div class="card__meta">Marketing · Social media</div>
-          <h3>Gestão de redes sociais</h3>
-          <p class="card__desc">Planejamento de conteúdo, produção e gestão de redes sociais para a sua marca crescer com consistência.</p>
-          <ul class="card__tools">
-            <li>Calendário editorial</li>
+          <div class="card__meta" data-i18n="services.social.meta">Marketing · Social media</div>
+          <h3 data-i18n="services.social.title">Social media management</h3>
+          <p class="card__desc" data-i18n="services.social.desc">Content planning, production and social media management so your brand grows consistently.</p>
+          <ul class="card__tools" data-i18n="services.social.tools">
+            <li>Editorial calendar</li>
             <li>Meta Ads</li>
-            <li>Relatórios mensais</li>
+            <li>Monthly reports</li>
           </ul>
         </div>
       </article>
 
       <article class="card reveal">
-        <div class="card__media"><span class="card__icon">Automação</span></div>
+        <div class="card__media"><span class="card__icon" data-i18n="services.automation.icon">Automation</span></div>
         <div class="card__body">
-          <div class="card__meta">Operações · Automação</div>
-          <h3>Automação de processos</h3>
-          <p class="card__desc">Fluxos automatizados que eliminam tarefas repetitivas e liberam o seu time para o que realmente importa.</p>
-          <ul class="card__tools">
+          <div class="card__meta" data-i18n="services.automation.meta">Operations · Automation</div>
+          <h3 data-i18n="services.automation.title">Process automation</h3>
+          <p class="card__desc" data-i18n="services.automation.desc">Automated workflows that eliminate repetitive tasks and free your team for what really matters.</p>
+          <ul class="card__tools" data-i18n="services.automation.tools">
             <li>Zapier / n8n</li>
             <li>Python</li>
-            <li>Integrações via API</li>
+            <li>API integrations</li>
           </ul>
         </div>
       </article>
@@ -151,31 +162,58 @@
   <section class="process" id="como-trabalhamos">
     <div class="process__inner">
       <div class="section-head">
-        <h2>Como trabalhamos</h2>
-        <p>Um processo simples, do primeiro diagnóstico ao suporte depois do lançamento.</p>
+        <h2 data-i18n="process.title">How we work</h2>
+        <p data-i18n="process.subtitle">A simple process, from first diagnosis to post-launch support.</p>
       </div>
       <div class="process__steps">
         <div class="step reveal">
           <span class="step__number">1</span>
-          <h3>Diagnóstico</h3>
-          <p>Entendemos o seu negócio, o problema real e onde a tecnologia pode ajudar mais rápido.</p>
+          <h3 data-i18n="process.step1.title">Diagnosis</h3>
+          <p data-i18n="process.step1.desc">We understand your business, the real problem and where technology can help fastest.</p>
         </div>
         <div class="step reveal">
           <span class="step__number">2</span>
-          <h3>Proposta</h3>
-          <p>Desenhamos um plano claro, com escopo, prazos e investimento definidos antes de começar.</p>
+          <h3 data-i18n="process.step2.title">Proposal</h3>
+          <p data-i18n="process.step2.desc">We draw up a clear plan with scope, deadlines and investment defined before we start.</p>
         </div>
         <div class="step reveal">
           <span class="step__number">3</span>
-          <h3>Desenvolvimento</h3>
-          <p>Construímos em ciclos curtos, com entregas visíveis e espaço para ajustes no caminho.</p>
+          <h3 data-i18n="process.step3.title">Development</h3>
+          <p data-i18n="process.step3.desc">We build in short cycles with visible deliveries and room for adjustments along the way.</p>
         </div>
         <div class="step reveal">
           <span class="step__number">4</span>
-          <h3>Suporte contínuo</h3>
-          <p>Depois do lançamento, seguimos por perto: manutenção, melhorias e novas frentes quando fizer sentido.</p>
+          <h3 data-i18n="process.step4.title">Ongoing support</h3>
+          <p data-i18n="process.step4.desc">After launch, we stay close: maintenance, improvements and new fronts when it makes sense.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projetos">
+    <div class="projects__inner">
+      <div class="section-head">
+        <h2 data-i18n="projects.title">Projects</h2>
+        <p data-i18n="projects.subtitle">An example of what we deliver when data and visualization meet.</p>
+      </div>
+
+      <article class="project reveal">
+        <div class="project__media">
+          <img src="assets/images/computer-only.svg" alt="">
+        </div>
+        <div class="project__body">
+          <div class="project__meta" data-i18n="projects.case.meta">Data analysis · R · RPubs</div>
+          <h3 data-i18n="projects.case.title">Russo-Ukrainian War Analysis</h3>
+          <p class="project__desc" data-i18n="projects.case.desc">Exploratory analysis of the Russia-Ukraine War using public Kaggle data. The project examines equipment losses, personnel casualties, prisoners of war and wounded, using R, tidyverse and Plotly to generate interactive visualizations.</p>
+          <ul class="project__tools" data-i18n="projects.case.tools">
+            <li>R</li>
+            <li>tidyverse</li>
+            <li>Plotly</li>
+            <li>Kaggle</li>
+          </ul>
+          <a href="https://rpubs.com/oliveirahenrique70/Russo-Ukrainian-war-analysis" target="_blank" rel="noopener" class="btn btn--primary" data-i18n="projects.case.cta">View project on RPubs</a>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -183,49 +221,12 @@
     <div class="about__inner">
       <div class="about__visual">
         <div class="about__visual-glow" aria-hidden="true"></div>
-        <img src="assets/images/dolphin-icon.svg" alt="Símbolo da Dolphin Developer">
+        <img src="assets/images/computer-only.svg" alt="" data-i18n-attr="alt" data-i18n="about.imageAlt">
       </div>
       <div class="about__text">
-        <h2>Sobre a Dolphin Developer</h2>
-        <p>Por que um golfinho? Golfinhos são rápidos, inteligentes e trabalham em grupo — exatamente como gostamos de construir tecnologia: com agilidade, inteligência aplicada e um time enxuto por trás de cada projeto.</p>
-        <p>A Dolphin Developer nasceu para ser o parceiro técnico de empresas que precisam de tecnologia séria, sem a burocracia de uma agência grande.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="skills" id="stack">
-    <div class="section-head">
-      <h2>Tecnologias</h2>
-      <p>O que usamos, agrupado pelo que resolve.</p>
-    </div>
-    <div class="skills__groups">
-      <div class="skills__group">
-        <h3>Front-end &amp; produto</h3>
-        <div class="badges">
-          <span class="badge">React</span>
-          <span class="badge">Next.js</span>
-          <span class="badge">TypeScript</span>
-          <span class="badge">Figma</span>
-        </div>
-      </div>
-      <div class="skills__group">
-        <h3>Dados &amp; backend</h3>
-        <div class="badges">
-          <span class="badge">Python</span>
-          <span class="badge">PostgreSQL</span>
-          <span class="badge">Spark</span>
-          <span class="badge">Airflow</span>
-          <span class="badge">AWS</span>
-        </div>
-      </div>
-      <div class="skills__group">
-        <h3>Automação &amp; social</h3>
-        <div class="badges">
-          <span class="badge">Zapier</span>
-          <span class="badge">n8n</span>
-          <span class="badge">Meta Ads</span>
-          <span class="badge">Google Analytics</span>
-        </div>
+        <h2 data-i18n="about.title">About Dolphin Developer</h2>
+        <p data-i18n="about.p1">Why a dolphin? Dolphins are fast, smart and work in groups — exactly how we like to build technology: with agility, applied intelligence and a lean team behind every project.</p>
+        <p data-i18n="about.p2">Dolphin Developer was born to be the technical partner for companies that need serious technology without the bureaucracy of a big agency.</p>
       </div>
     </div>
   </section>
@@ -233,28 +234,28 @@
   <section class="contact" id="contato">
     <div class="contact__inner">
       <div class="section-head">
-        <h2>Fale com a gente</h2>
-        <p>Conta um pouco sobre o seu projeto — respondemos em até dois dias úteis.</p>
+        <h2 data-i18n="contact.title">Get in touch</h2>
+        <p data-i18n="contact.subtitle">Tell us a little about your project — we reply within two business days.</p>
       </div>
 
       <div class="contact__grid">
         <form class="contact__form" id="contact-form" novalidate>
           <div class="field">
-            <label for="name">Nome</label>
+            <label for="name" data-i18n="contact.nameLabel">Name</label>
             <input type="text" id="name" name="name" required autocomplete="name">
             <span class="field__error" id="name-error"></span>
           </div>
           <div class="field">
-            <label for="email">E-mail</label>
+            <label for="email" data-i18n="contact.emailLabel">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email">
             <span class="field__error" id="email-error"></span>
           </div>
           <div class="field">
-            <label for="message">Mensagem</label>
+            <label for="message" data-i18n="contact.messageLabel">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
             <span class="field__error" id="message-error"></span>
           </div>
-          <button type="submit" class="btn btn--primary">Enviar mensagem</button>
+          <button type="submit" class="btn btn--primary" data-i18n="contact.submit">Send message</button>
           <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
         </form>
 
@@ -271,8 +272,8 @@
 </main>
 
 <footer class="footer">
-  <img src="assets/images/dolphin-icon.svg" alt="">
-  <p>Dolphin Developer — tecnologia com agilidade.</p>
+  <img src="assets/images/computer-only.svg" alt="">
+  <p data-i18n="footer.text">Dolphin Developer — technology with agility.</p>
 </footer>
 
 <script src="js/main.js"></script>
