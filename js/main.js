@@ -83,6 +83,7 @@ const translations = {
     },
     about: {
       title: 'About Dolphin Developer',
+      subtitle: 'Agility, intelligence and a lean team.',
       p1: 'Why a dolphin? Dolphins are fast, smart and work in groups — exactly how we like to build technology: with agility, applied intelligence and a lean team behind every project.',
       p2: 'Dolphin Developer was born to be the technical partner for companies that need serious technology without the bureaucracy of a big agency.',
       imageAlt: 'Computer illustration',
@@ -187,6 +188,7 @@ const translations = {
     },
     about: {
       title: 'Sobre a Dolphin Developer',
+      subtitle: 'Agilidade, inteligência e um time enxuto.',
       p1: 'Por que um golfinho? Golfinhos são rápidos, inteligentes e trabalham em grupo — exatamente como gostamos de construir tecnologia: com agilidade, inteligência aplicada e um time enxuto por trás de cada projeto.',
       p2: 'A Dolphin Developer nasceu para ser o parceiro técnico de empresas que precisam de tecnologia séria, sem a burocracia de uma agência grande.',
       imageAlt: 'Ilustração de um computador',
@@ -291,6 +293,7 @@ const translations = {
     },
     about: {
       title: 'Sobre Dolphin Developer',
+      subtitle: 'Agilidad, inteligencia y un equipo reducido.',
       p1: '¿Por qué un delfín? Los delfines son rápidos, inteligentes y trabajan en grupo — exactamente como nos gusta construir tecnología: con agilidad, inteligencia aplicada y un equipo reducido detrás de cada proyecto.',
       p2: 'Dolphin Developer nació para ser el socio técnico de empresas que necesitan tecnología seria sin la burocracia de una gran agencia.',
       imageAlt: 'Ilustración de una computadora',
