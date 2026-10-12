@@ -1,0 +1,142 @@
+# Dolphin Developer — Agent Notes
+
+This document is a project guide for AI coding agents. It describes the current architecture, conventions, and how to work safely inside this repository.
+
+## Project overview
+
+Dolphin Developer is a static, single-page marketing landing page for a development and data studio. It showcases services, a project case study, a workflow section, an about section, and a contact form. The page is intentionally framework-free and is served directly from the repository root.
+
+Live site: https://oliveirahenrique70.github.io/dolphin/
+Source repository: https://github.com/oliveirahenrique70/dolphin
+
+## Technology stack
+
+- **HTML5** — semantic, single-page markup in `index.html`.
+- **CSS3** — hand-written stylesheet in `css/main.css`. Uses CSS custom properties, CSS Grid, Flexbox, and responsive breakpoints. No preprocessor or CSS framework.
+- **Vanilla JavaScript** — all behavior lives in `js/main.js`. No bundler, no framework.
+- **Google Fonts** — Fraunces (display) and Inter (body), loaded from `fonts.googleapis.com`.
+- **SVG icons** — the dolphin/computer mark is an inline/external SVG at `assets/images/computer-only.svg`.
+- **GitHub Pages** — the deployed site is served from the `main` branch root.
+
+There is no `package.json`, `pyproject.toml`, `Cargo.toml`, `Gemfile`, or similar package manifest. There is no build step.
+
+## Project structure
+
+```
+.
+├── index.html              # Main landing page
+├── css/
+│   └── main.css            # Active stylesheet (linked by index.html)
+├── css/css/                # Stale duplicate folder (untracked, not used)
+│   └── main.css
+├── js/
+│   └── main.js             # Navigation, i18n, scroll reveal, form validation
+├── assets/
+│   └── images/
+│       ├── computer-only.svg
+│       └── project-russo-ukrainian-war.png
+├── README.md               # Human-facing project documentation
+└── AGENTS.md               # This file
+```
+
+Important: `css/css/main.css` is an older duplicate and is **not referenced** by `index.html`. Changes should be made to `css/main.css`. If the duplicate is still present, delete it to avoid confusion.
+
+## Runtime architecture
+
+Everything runs in the browser:
+
+1. The browser loads `index.html`, which requests `css/main.css`, Google Fonts, and `js/main.js`.
+2. `js/main.js` initializes the page on load:
+   - Reads the saved language from `localStorage` (key `dolphin-lang`) or defaults to English.
+   - Replaces every element with a `data-i18n` attribute with the translated string/array from the `translations` object.
+   - Binds the mobile menu toggle, language dropdown, scroll state, smooth anchor scrolling, scroll-reveal observer, and contact-form validation.
+3. The contact form is **client-side only**. Submitting it shows a simulated "Sending…" / success message and resets the form. It does not POST anywhere.
+
+## Build and run commands
+
+There is no build process. To view the site locally, start a static file server from the project root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open http://localhost:8000 in a browser.
+
+Any static server works (`npx serve`, `php -S`, etc.), but `python3 -m http.server` is the command already documented in `README.md`.
+
+## Deployment
+
+The live site is published with GitHub Pages from the root of the `main` branch of `oliveirahenrique70/dolphin`.
+
+To deploy a change:
+
+1. Commit the change to the `main` branch.
+2. Push to `origin/main`.
+3. Wait for GitHub Pages to refresh (typically within a minute or two).
+
+There is no CI/CD workflow file in the repository, so the deployment is handled by GitHub's built-in Pages service.
+
+## Code style guidelines
+
+### HTML
+- Semantic tags (`<header>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+- BEM-style class names: block (`nav`), element (`nav__inner`), modifier (`btn--primary`).
+- All translatable text uses `data-i18n="path.to.key"`. Translatable attributes (like `alt`) use both `data-i18n-attr="attr"` and `data-i18n="key"`.
+- ARIA attributes are used for interactive controls (`aria-expanded`, `aria-haspopup`, `aria-controls`, `aria-label`, `aria-selected`, `aria-live`).
+
+### CSS
+- Design tokens live in `:root` CSS custom properties (colors, fonts, spacing, easing).
+- Class naming follows BEM-ish conventions matching the HTML.
+- Responsive layouts rely on CSS Grid and Flexbox plus `@media (max-width: …)` breakpoints.
+- Motion is gated by `@media (prefers-reduced-motion: reduce)`.
+- Color contrast is intentional (for example, `--accent-btn` is a darker cyan so white button text passes WCAG AA).
+
+### JavaScript
+- Vanilla ES6+ in one file.
+- Feature detection before using `IntersectionObserver`.
+- No third-party runtime dependencies.
+- Translations are a plain nested object keyed by `en`, `pt`, `es`.
+- Keep behavior modular inside clearly commented sections (Translations, Mobile menu, Scroll reveal, Contact form, etc.).
+
+## Internationalization (i18n)
+
+- Default language: English (`en`).
+- Supported languages: English (`en`), Portuguese (`pt`), Spanish (`es`).
+- Strings are stored in `js/main.js` inside the `translations` object.
+- The active language is persisted in `localStorage` under `dolphin-lang`.
+- The `<html>` `lang` attribute is updated to `pt-BR`, `es`, or `en` on language change.
+- To add a new language:
+  1. Add a top-level key to `translations`.
+  2. Translate all keys, keeping nested paths identical.
+  3. Add a button in the `.lang-switcher__menu` list in `index.html` with `data-lang="xx"`.
+
+## Testing instructions
+
+There are currently no automated tests. Validate changes manually:
+
+1. Start the local server (`python3 -m http.server 8000`).
+2. Check the page at desktop and mobile viewports (use browser DevTools).
+3. Verify each language switch updates all visible text and the `lang` attribute.
+4. Verify the mobile menu opens, closes via toggle/Escape/outside click, and closes after clicking a link.
+5. Verify smooth anchor scrolling lands sections below the sticky nav.
+6. Verify scroll-reveal animations trigger as sections enter the viewport.
+7. Verify the contact form:
+   - Empty or invalid fields show translated errors.
+   - A valid form shows the translated "Sending…" then success message and resets.
+8. Verify `prefers-reduced-motion` disables animations.
+9. Check that no console errors appear.
+
+## Security considerations
+
+- The contact form has **no backend**. It only validates client-side and simulates a response. Do not treat submitted form data as securely handled.
+- External links (`RPubs`, social placeholders) use `target="_blank"` with `rel="noopener"`.
+- Language preference is stored in `localStorage` under a project-specific key (`dolphin-lang`).
+- All JavaScript is first-party and inline; there are no eval calls or dynamic script injections.
+- No `.env`, API keys, or credentials are present.
+- If you add a real backend for the contact form, add server-side validation, CSRF protection, rate limiting, and a privacy notice. Do not rely on client-side validation alone.
+
+## Common gotchas
+
+- `index.html` links to `css/main.css`, not `css/css/main.css`. Ignore or remove the `css/css/` folder.
+- Social links in the contact section currently point to generic `https://github.com`, `https://linkedin.com`, and `https://instagram.com` placeholders, plus `mailto:contato@dolphindeveloper.com`.
+- The project preview image is `assets/images/project-russo-ukrainian-war.png` and must remain optimized; it is the largest asset.
