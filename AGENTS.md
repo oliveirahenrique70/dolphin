@@ -41,6 +41,16 @@ There is no `package.json`, `pyproject.toml`, `Cargo.toml`, `Gemfile`, or simila
 
 Important: `css/css/main.css` is an older duplicate and is **not referenced** by `index.html`. Changes should be made to `css/main.css`. If the duplicate is still present, delete it to avoid confusion.
 
+## Repo map (graphify)
+
+Before exploring the codebase, read `graphify-out/graph.json`. It contains an extracted graph of the repository structure (files, symbols, and relationships) and is cheaper to load than scanning the whole repo from scratch.
+
+- The map is generated with `graphify extract . --code-only --no-cluster`.
+- `graphify-out/graph.json` is the primary file to inspect.
+- `.graphifyignore` excludes files that are not part of the project (for example, `get-pip.py`).
+
+Current coverage note: because the extraction runs in `--code-only` mode, the map currently covers `js/main.js` (AST nodes for translations, i18n, navigation, scroll reveal, and form validation). `index.html`, `css/main.css`, documentation files, and image assets are not yet represented. To extend coverage, rerun graphify with an LLM API key configured and remove `--code-only`.
+
 ## Runtime architecture
 
 Everything runs in the browser:
