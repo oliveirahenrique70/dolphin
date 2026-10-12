@@ -16,16 +16,11 @@ const translations = {
     },
     hero: {
       role: 'Development & data studio',
-      headline: 'We build the technology that takes your business beyond the surface.',
+      headline: 'We build the technology that takes your business forward.',
       sub: 'Websites, data dashboards, automations and social media management — everything designed so your team swims ahead while we handle the tech.',
       ctaPrimary: 'See services',
       ctaSecondary: 'Get in touch',
       imageAlt: 'Computer illustration',
-    },
-    stats: {
-      projectsLabel: 'projects delivered',
-      frentesLabel: 'areas of expertise, from websites to automation',
-      remoteLabel: 'remote, any timezone',
     },
     services: {
       title: 'Services',
@@ -125,16 +120,11 @@ const translations = {
     },
     hero: {
       role: 'Estúdio de desenvolvimento & dados',
-      headline: 'Construímos a tecnologia que leva o seu negócio além da superfície.',
+      headline: 'Construímos a tecnologia que leva o seu negócio adiante.',
       sub: 'Sites, dashboards de dados, automações e gestão de redes sociais — tudo desenhado para o seu time nadar de braçada enquanto a gente cuida da tecnologia.',
       ctaPrimary: 'Ver serviços',
       ctaSecondary: 'Falar com a gente',
       imageAlt: 'Ilustração de um computador',
-    },
-    stats: {
-      projectsLabel: 'projetos entregues',
-      frentesLabel: 'frentes de atuação, de site a automação',
-      remoteLabel: 'remoto, em qualquer fuso',
     },
     services: {
       title: 'Serviços',
@@ -234,16 +224,11 @@ const translations = {
     },
     hero: {
       role: 'Estudio de desarrollo & datos',
-      headline: 'Construimos la tecnología que lleva tu negocio más allá de la superficie.',
+      headline: 'Construimos la tecnología que lleva tu negocio adelante.',
       sub: 'Sitios web, dashboards de datos, automatizaciones y gestión de redes sociales — todo diseñado para que tu equipo nade a braza mientras nosotros nos encargamos de la tecnología.',
       ctaPrimary: 'Ver servicios',
       ctaSecondary: 'Hablemos',
       imageAlt: 'Ilustración de una computadora',
-    },
-    stats: {
-      projectsLabel: 'proyectos entregados',
-      frentesLabel: 'frentes de actuación, de sitios a automatización',
-      remoteLabel: 'remoto, en cualquier zona horaria',
     },
     services: {
       title: 'Servicios',

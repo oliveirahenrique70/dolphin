@@ -6,7 +6,7 @@ Live site: https://oliveirahenrique70.github.io/dolphin/
 
 ## About
 
-Dolphin Developer builds technology that takes businesses beyond the surface: websites, data dashboards, process automation and social media management. The site showcases the studio's services, workflow, technology stack and a featured data-analysis project.
+Dolphin Developer builds technology that takes businesses forward: websites, data dashboards, process automation and social media management. The site showcases the studio's services, workflow, technology stack and a featured data-analysis project.
 
 ## Features
 
